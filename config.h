@@ -62,6 +62,9 @@ static const char *runCode[] = { "/usr/bin/code" };
 static const char *runChrome[] = { "/usr/bin/chromium-browser" };
 static const char *runSpotify[] = { "/usr/bin/spotify" };
 
+static const char *mediaVolUp[]   = { "/usr/bin/pactl", "set-sink-volume", "1", "+5%",     NULL };
+static const char *mediaVolDown[] = { "/usr/bin/pactl", "set-sink-volume", "1", "-5%",     NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -101,6 +104,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F12, spawn, {.v = runCode }},
 	{ MODKEY,                       XK_F9, spawn, {.v = runChrome }},
 	{ MODKEY,                       XK_F1, spawn, {.v = runSpotify }},
+	{ MODKEY,                       XK_F2, spawn, {.v = mediaVolDown }},
+	{ MODKEY,                       XK_F3, spawn, {.v = mediaVolUp }},
 };
 
 /* button definitions */
