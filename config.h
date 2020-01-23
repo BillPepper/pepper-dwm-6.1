@@ -58,9 +58,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "urxvt", NULL };
 
 // mattes -> custom commands
-static const char *runCode[] = { "/usr/bin/code" };
-static const char *runChrome[] = { "/usr/bin/chromium-browser" };
-static const char *runSpotify[] = { "/usr/bin/spotify" };
+static const char *runCode[] = { "/usr/bin/code", NULL };
+static const char *runChrome[] = { "/usr/bin/chromium-browser", NULL };
+static const char *runSpotify[] = { "/usr/bin/spotify", NULL };
 
 static const char *mediaVolUp[]   = { "/usr/bin/pactl", "set-sink-volume", "1", "+5%",     NULL };
 static const char *mediaVolDown[] = { "/usr/bin/pactl", "set-sink-volume", "1", "-5%",     NULL };
