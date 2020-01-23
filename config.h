@@ -57,6 +57,11 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 
+// mattes -> custom commands
+static const char *runCode[] = { "/usr/bin/code" };
+static const char *runChrome[] = { "/usr/bin/chromium-browser" };
+static const char *runSpotify[] = { "/usr/bin/spotify" };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -92,6 +97,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+  // mattes -> custom keys
+	{ MODKEY,                       XK_F12, spawn, {.v = runCode }},
+	{ MODKEY,                       XK_F9, spawn, {.v = runChrome }},
+	{ MODKEY,                       XK_F1, spawn, {.v = runSpotify }},
 };
 
 /* button definitions */
