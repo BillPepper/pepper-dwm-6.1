@@ -64,6 +64,10 @@ static const char *runSpotify[] = { "/usr/bin/spotify", NULL };
 
 static const char *mediaVolUp[]   = { "/usr/bin/pactl", "set-sink-volume", "1", "+5%",     NULL };
 static const char *mediaVolDown[] = { "/usr/bin/pactl", "set-sink-volume", "1", "-5%",     NULL };
+static const char *mediaPlayPause[] = { "/usr/bin/playPauseSpotify", NULL };
+
+static const char *singleMon[] = { "/usr/bin/adm-single-monitor", NULL };
+static const char *trippleMon[] = { "/usr/bin/adm-tripple-monitor", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -106,6 +110,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_F1, spawn, {.v = runSpotify }},
 	{ MODKEY,                       XK_F2, spawn, {.v = mediaVolDown }},
 	{ MODKEY,                       XK_F3, spawn, {.v = mediaVolUp }},
+	{ MODKEY,                       XK_F7, spawn, {.v = mediaPlayPause }},
+
+	{ MODKEY,                       XK_F11, spawn, {.v = trippleMon }},
+	{ MODKEY|ShiftMask,              XK_F11, spawn, {.v = singleMon }},
 };
 
 /* button definitions */
