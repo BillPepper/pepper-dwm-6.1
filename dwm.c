@@ -819,6 +819,10 @@ drawbar(Monitor *m)
 	xx = x;
   w = TEXTW(stext);
   x = m->ww - w;
+
+	// fix tray icons overlapping status
+	x -= getsystraywidth();
+
   if(x < xx) {
   	x = xx;
   	w = m->ww - xx;
