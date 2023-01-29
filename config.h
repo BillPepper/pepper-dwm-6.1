@@ -59,6 +59,11 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 
+/* media keys */
+static const char *mediaVolUp[]   = { "/usr/bin/pactl", "set-sink-volume", "1", "+5%",     NULL };
+static const char *mediaVolDown[] = { "/usr/bin/pactl", "set-sink-volume", "1", "-5%",     NULL };
+static const char *mediaPlayPause[] = { "/usr/bin/playPauseSpotify", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -94,6 +99,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+  { MODKEY,                       XK_F2, spawn, {.v = mediaVolDown }},
+  { MODKEY,                       XK_F3, spawn, {.v = mediaVolUp }},
+  { MODKEY,                       XK_F7, spawn, {.v = mediaPlayPause }}
 };
 
 /* button definitions */
